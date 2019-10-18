@@ -12,12 +12,10 @@ class UserController {
   async index({ request }) {
     const { page, limit, search, is_active } = request.all()
 
-    console.log({ is_active, search })
-
     return User.query()
+      .where('name', 'LIKE', '%' + search + '%')
       .where('is_active', is_active)
       .paginate(page || 1, limit || 10)
-
   }
 
   /**
