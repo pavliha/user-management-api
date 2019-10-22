@@ -1,8 +1,18 @@
 const User = use('App/Models/User')
+const isUndefined = require('lodash/isUndefined')
 
 /**
  * Resourceful controller for interacting with users
  */
+
+
+const defaults = (params) => ({
+  page: params.page || 1,
+  limit: params.limit || 20,
+  search: params.search,
+  is_active: isUndefined(params.is_active) ? true : params.is_active,
+})
+
 class UserController {
 
   /**
@@ -10,12 +20,12 @@ class UserController {
    * GET users
    */
   async index({ request }) {
-    const { page, limit, search, is_active } = request.all()
+    const { page, limit, search, is_active } = defaults(request.all())
 
     return User.query()
       .where('name', 'LIKE', '%' + search + '%')
       .where('is_active', is_active)
-      .paginate(page || 1, limit || 10)
+      .paginate(page, limit)
   }
 
   /**
