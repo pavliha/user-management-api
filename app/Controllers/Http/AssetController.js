@@ -24,11 +24,9 @@ class AssetController {
    * @param {object} ctx
    * @param {Request} ctx.request
    */
-  async index({ request, auth }) {
+  async index({ request }) {
     const { page, limit } = request.all()
-    return Asset.query()
-      .where({ admin_id: auth.user.id })
-      .paginate({ page, limit })
+    return Asset.query().paginate({ page, limit })
   }
 
   /**
@@ -39,11 +37,10 @@ class AssetController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async store({ request, response, auth }) {
+  async store({ request, response }) {
     const fileName = await processFile(request)
 
     const asset = await Asset.create({
-      admin_id: auth.user.id,
       title: request.input('title'),
       url: `/uploads/${fileName}`
     })

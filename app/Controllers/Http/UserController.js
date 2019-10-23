@@ -33,7 +33,11 @@ class UserController {
    * POST users
    */
   async store({ request, response }) {
-    const user = await User.create(request.all())
+    const form = request.all()
+    const user = await User.create({
+      ...form,
+      password: 'qwerty123'
+    })
     return response.created(user)
   }
 
@@ -49,16 +53,12 @@ class UserController {
    * Update user details.
    * PUT or PATCH users/:id
    */
-  async update({ request, auth, response, user }) {
+  async update({ request, response, user }) {
     const fields = request.all()
     user.merge(fields)
     await user.save()
 
-    const tokens = await auth
-      .withRefreshToken()
-      .generate(await User.find(user.id), true)
-
-    return response.updated(tokens)
+    return response.updated(user)
   }
 
   /**

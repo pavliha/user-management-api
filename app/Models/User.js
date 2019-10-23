@@ -38,6 +38,7 @@ class User extends Model {
   }
 
   setAvatarUrl(url) {
+    if (!url) return url
     return url.replace(Env.get('APP_URL'), '')
   }
 

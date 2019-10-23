@@ -33,5 +33,8 @@ Route.post('/log', 'SwaggerController.log')
  * */
 Route.resource('users', 'UserController')
   .validator([['users.index', 'User/Index'], ['users.store', 'User/Store'], ['users.update', 'User/Update']])
-  .middleware(new Map([[['store', 'update', 'destroy'], ['auth']]]))
+  .apiOnly()
+
+Route.resource('assets', 'AssetController')
+  .validator([['assets.store', 'Asset/Store'], ['assets.destroy', 'Asset/Destroy']])
   .apiOnly()
