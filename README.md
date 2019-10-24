@@ -1,6 +1,6 @@
 # User management application
 
-This is the fullstack app in AdonisJs, it comes pre-configured with.
+This is the backend app in AdonisJs, it comes pre-configured with.
 
 1. Bodyparser
 2. Session
@@ -31,10 +31,18 @@ Use the adonis-cli command to generate new app key
 adonis key:generate
 ```
 
-Use the npm command to run migrations and seed database
+
+Use the adonis-cli command to generate new app key
 
 ```bash
-npm run boot
+adonis key:generate
+```
+
+
+Install npm packages
+
+```bash
+npm install
 ```
 
 
