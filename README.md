@@ -13,7 +13,7 @@ This is the fullstack app in AdonisJs, it comes pre-configured with.
 
 ## Setup
 
-Create your own enviroment file
+Create your own environment file
 
 ```bash
 cp .env.example .env
