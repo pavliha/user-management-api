@@ -9,7 +9,7 @@ const isUndefined = require('lodash/isUndefined')
 const defaults = (params) => ({
   page: params.page || 1,
   limit: params.limit || 20,
-  search: params.search,
+  search: params.search || '',
   is_active: isUndefined(params.is_active) ? true : params.is_active,
 })
 
