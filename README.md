@@ -13,6 +13,12 @@ This is the fullstack app in AdonisJs, it comes pre-configured with.
 
 ## Setup
 
+Install adonis-cli to run adonis commands
+
+```bash
+npm i -g @adonisjs/cli
+```
+
 Create your own environment file
 
 ```bash
