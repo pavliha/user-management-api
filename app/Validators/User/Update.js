@@ -10,8 +10,8 @@ module.exports = class Update {
   get rules() {
     return {
       avatar_url: 'string',
-      name: 'required',
-      email: 'required|email',
+      name: 'string',
+      email: 'email',
       skype: 'string',
       signature: 'string',
     }
