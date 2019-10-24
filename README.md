@@ -1,6 +1,6 @@
-# Adonis fullstack application
+# User management application
 
-This is the fullstack boilerplate for AdonisJs, it comes pre-configured with.
+This is the fullstack app in AdonisJs, it comes pre-configured with.
 
 1. Bodyparser
 2. Session
@@ -13,19 +13,29 @@ This is the fullstack boilerplate for AdonisJs, it comes pre-configured with.
 
 ## Setup
 
-Use the adonis command to install the blueprint
+Create your own enviroment file
 
 ```bash
-adonis new yardstick
+cp .env.example .env
 ```
 
-or manually clone the repo and then run `npm install`.
+Use the adonis-cli command to generate new app key
+
+```bash
+adonis key:generate
+```
+
+Use the npm command to run migrations and seed database
+
+```bash
+npm run boot
+```
 
 
-### Migrations
+### Start
 
-Run the following command to run startup migrations.
+Run the following command to run start application.
 
 ```js
-adonis migration:run
+npm run start
 ```
