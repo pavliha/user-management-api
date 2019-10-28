@@ -31,14 +31,6 @@ Use the adonis-cli command to generate new app key
 adonis key:generate
 ```
 
-
-Use the adonis-cli command to generate new app key
-
-```bash
-adonis key:generate
-```
-
-
 Install npm packages
 
 ```bash
